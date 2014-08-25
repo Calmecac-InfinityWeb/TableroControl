@@ -20,10 +20,10 @@ class Implementacion {
 	Estado convertirPDF
 	Date fechaEntrega
 	String observaciones
-	Procedimiento procedimiento
+	
+	static belongsTo = [myProcedimiento:Procedimiento]
 
     static constraints = {
-    	procedimiento nullable: false
     	observaciones blank:true, size: 0..90
     }
 }

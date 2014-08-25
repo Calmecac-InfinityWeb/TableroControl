@@ -9,10 +9,10 @@ class CargasISO {
 	Date fechaDeCarga
 	Estado clavesPorUsuario
 	String observaciones
-	Procedimiento procedimiento
+
+	static belongsTo = [myProcedimiento:Procedimiento]
 
     static constraints = {
-    	procedimiento nullable: false
     	observaciones blank:true, size: 0..90
     }
 }
