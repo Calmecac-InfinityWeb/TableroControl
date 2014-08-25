@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: mapeoInstance, field: 'procedimiento', 'error')} required">
-	<label for="procedimiento">
-		<g:message code="mapeo.procedimiento.label" default="Procedimiento" />
+<div class="fieldcontain ${hasErrors(bean: mapeoInstance, field: 'myProcedimiento', 'error')} required">
+	<label for="myProcedimiento">
+		<g:message code="mapeo.myProcedimiento.label" default="My Procedimiento" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="procedimiento" name="procedimiento.id" from="${mx.infinityweb.Procedimiento.list()}" optionKey="id" required="" value="${mapeoInstance?.procedimiento?.id}" class="many-to-one"/>
+	<g:select id="myProcedimiento" name="myProcedimiento.id" from="${mx.infinityweb.Procedimiento.list()}" optionKey="id" required="" value="${mapeoInstance?.myProcedimiento?.id}" class="many-to-one"/>
 
 </div>
 

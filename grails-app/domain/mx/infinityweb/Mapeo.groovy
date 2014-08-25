@@ -7,10 +7,11 @@ class Mapeo {
 	Estado certificado
 	Estado alcance
 	String observaciones
-	Procedimiento procedimiento
+	
+	static belongsTo = [myProcedimiento:Procedimiento]
     
     static constraints = {
-    	procedimiento nullable: false
+    	myProcedimiento nullable: false
     	observaciones blank:true, size: 0..90
     }
 }
