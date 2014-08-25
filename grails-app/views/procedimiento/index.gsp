@@ -30,6 +30,8 @@
 					
 						<g:sortableColumn property="estadoProcedimiento" title="${message(code: 'procedimiento.estadoProcedimiento.label', default: 'Estado Procedimiento')}" />
 					
+						<th><g:message code="procedimiento.myMapeo.label" default="My Mapeo" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -41,6 +43,8 @@
 						<td>${fieldValue(bean: procedimientoInstance, field: "nombreProcedimiento")}</td>
 					
 						<td>${fieldValue(bean: procedimientoInstance, field: "estadoProcedimiento")}</td>
+					
+						<td>${fieldValue(bean: procedimientoInstance, field: "myMapeo")}</td>
 					
 					</tr>
 				</g:each>

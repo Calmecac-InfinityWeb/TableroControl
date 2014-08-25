@@ -24,7 +24,7 @@
 			<thead>
 					<tr>
 					
-						<th><g:message code="mapeo.procedimiento.label" default="Procedimiento" /></th>
+						<th><g:message code="mapeo.myProcedimiento.label" default="My Procedimiento" /></th>
 					
 						<g:sortableColumn property="observaciones" title="${message(code: 'mapeo.observaciones.label', default: 'Observaciones')}" />
 					
@@ -42,7 +42,7 @@
 				<g:each in="${mapeoInstanceList}" status="i" var="mapeoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${mapeoInstance.id}">${fieldValue(bean: mapeoInstance, field: "procedimiento")}</g:link></td>
+						<td><g:link action="show" id="${mapeoInstance.id}">${fieldValue(bean: mapeoInstance, field: "myProcedimiento")}</g:link></td>
 					
 						<td>${fieldValue(bean: mapeoInstance, field: "observaciones")}</td>
 					

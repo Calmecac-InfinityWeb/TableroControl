@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list mapeo">
 			
-				<g:if test="${mapeoInstance?.procedimiento}">
+				<g:if test="${mapeoInstance?.myProcedimiento}">
 				<li class="fieldcontain">
-					<span id="procedimiento-label" class="property-label"><g:message code="mapeo.procedimiento.label" default="Procedimiento" /></span>
+					<span id="myProcedimiento-label" class="property-label"><g:message code="mapeo.myProcedimiento.label" default="My Procedimiento" /></span>
 					
-						<span class="property-value" aria-labelledby="procedimiento-label"><g:link controller="procedimiento" action="show" id="${mapeoInstance?.procedimiento?.id}">${mapeoInstance?.procedimiento?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="myProcedimiento-label"><g:link controller="procedimiento" action="show" id="${mapeoInstance?.myProcedimiento?.id}">${mapeoInstance?.myProcedimiento?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

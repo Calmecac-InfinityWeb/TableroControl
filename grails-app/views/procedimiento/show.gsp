@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${procedimientoInstance?.myMapeo}">
+				<li class="fieldcontain">
+					<span id="myMapeo-label" class="property-label"><g:message code="procedimiento.myMapeo.label" default="My Mapeo" /></span>
+					
+						<span class="property-value" aria-labelledby="myMapeo-label"><g:link controller="mapeo" action="show" id="${procedimientoInstance?.myMapeo?.id}">${procedimientoInstance?.myMapeo?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:procedimientoInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
