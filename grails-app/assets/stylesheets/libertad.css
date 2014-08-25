@@ -764,7 +764,7 @@ body > .header .logo .icon {
   margin-right: 5px;
   /* Default background and font colors */
 
-  background: #00c0ef;
+  background: #00F0AC;
   color: #f9f9f9;
   /* Fallback for browsers that doesn't support rgba */
 
@@ -866,7 +866,7 @@ body > .header .logo .icon {
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
   height: 175px;
   padding: 10px;
-  background: #3c8dbc;
+  background: #00a65a;
   text-align: center;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header > img {
@@ -903,7 +903,7 @@ body > .header .logo .icon {
   clear: both;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-body > div > a {
-  color: #0073b7;
+  color: #00a65a;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer {
   background-color: #f9f9f9;

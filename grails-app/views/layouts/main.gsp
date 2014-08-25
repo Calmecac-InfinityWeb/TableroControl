@@ -22,8 +22,7 @@
     <g:layoutHead/>
 </head>
 <body ng-app="tableroControl" class="skin-blue">
-{{"hola" + "asdf"}}
-
+<g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
