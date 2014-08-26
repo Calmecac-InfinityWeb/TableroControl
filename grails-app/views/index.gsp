@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
         </a>
         <div class="navbar-left">
-            <a class="bg-light-red logo" style="width: 300px">Tablero de Control</a>
+            <a class="bg-light-blsue logo" style="width: 300px">Tablero de Control</a>
         </div>
         <div class="navbar-right">
             <ul class="nav navbar-nav">
