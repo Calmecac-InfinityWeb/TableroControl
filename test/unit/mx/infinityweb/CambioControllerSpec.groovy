@@ -7,9 +7,9 @@ import grails.converters.JSON
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(SubsecretariaController)
-@Mock(Subsecretaria)
-class SubsecretariaControllerSpec extends Specification {
+@TestFor(CambioController)
+@Mock(Cambio)
+class CambioControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -32,8 +32,8 @@ class SubsecretariaControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             // Make sure the domain class has at least one non-null property
             // or this test will fail.
-            def subsecretaria = new Subsecretaria()
-            controller.save(subsecretaria)
+            def cambio = new Cambio()
+            controller.save(cambio)
 
         then:"The response status is NOT_ACCEPTABLE"
             response.status == NOT_ACCEPTABLE.value
@@ -41,13 +41,13 @@ class SubsecretariaControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            subsecretaria = new Subsecretaria(params)
+            cambio = new Cambio(params)
 
-            controller.save(subsecretaria)
+            controller.save(cambio)
 
         then:"The response status is CREATED and the instance is returned"
             response.status == CREATED.value
-            response.text == (subsecretaria as JSON).toString()
+            response.text == (cambio as JSON).toString()
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -59,8 +59,8 @@ class SubsecretariaControllerSpec extends Specification {
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def subsecretaria = new Subsecretaria()
-            controller.update(subsecretaria)
+            def cambio = new Cambio()
+            controller.update(cambio)
 
         then:"The response status is NOT_ACCEPTABLE"
             response.status == NOT_ACCEPTABLE.value
@@ -68,12 +68,12 @@ class SubsecretariaControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            subsecretaria = new Subsecretaria(params).save(flush: true)
-            controller.update(subsecretaria)
+            cambio = new Cambio(params).save(flush: true)
+            controller.update(cambio)
 
         then:"The response status is OK and the updated instance is returned"
             response.status == OK.value
-            response.text == (subsecretaria as JSON).toString()
+            response.text == (cambio as JSON).toString()
     }
 
     void "Test that the delete action deletes an instance if it exists"() {
@@ -86,16 +86,16 @@ class SubsecretariaControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def subsecretaria = new Subsecretaria(params).save(flush: true)
+            def cambio = new Cambio(params).save(flush: true)
 
         then:"It exists"
-            Subsecretaria.count() == 1
+            Cambio.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(subsecretaria)
+            controller.delete(cambio)
 
         then:"The instance is deleted"
-            Subsecretaria.count() == 0
+            Cambio.count() == 0
             response.status == NO_CONTENT.value
     }
 }

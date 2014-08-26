@@ -6,59 +6,59 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class SecretariaController {
+class OpcLlenadoController {
 
     static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Secretaria.list(params), [status: OK]
+        respond OpcLlenado.list(params), [status: OK]
     }
 
     @Transactional
-    def save(Secretaria secretariaInstance) {
-        if (secretariaInstance == null) {
+    def save(OpcLlenado opcLlenadoInstance) {
+        if (opcLlenadoInstance == null) {
             render status: NOT_FOUND
             return
         }
 
-        secretariaInstance.validate()
-        if (secretariaInstance.hasErrors()) {
+        opcLlenadoInstance.validate()
+        if (opcLlenadoInstance.hasErrors()) {
             render status: NOT_ACCEPTABLE
             return
         }
 
-        secretariaInstance.save flush:true
-        respond secretariaInstance, [status: CREATED]
+        opcLlenadoInstance.save flush:true
+        respond opcLlenadoInstance, [status: CREATED]
     }
 
     @Transactional
-    def update(Secretaria secretariaInstance) {
-        if (secretariaInstance == null) {
+    def update(OpcLlenado opcLlenadoInstance) {
+        if (opcLlenadoInstance == null) {
             render status: NOT_FOUND
             return
         }
 
-        secretariaInstance.validate()
-        if (secretariaInstance.hasErrors()) {
+        opcLlenadoInstance.validate()
+        if (opcLlenadoInstance.hasErrors()) {
             render status: NOT_ACCEPTABLE
             return
         }
 
-        secretariaInstance.save flush:true
-        respond secretariaInstance, [status: OK]
+        opcLlenadoInstance.save flush:true
+        respond opcLlenadoInstance, [status: OK]
     }
 
     @Transactional
-    def delete(Secretaria secretariaInstance) {
+    def delete(OpcLlenado opcLlenadoInstance) {
 
-        if (secretariaInstance == null) {
+        if (opcLlenadoInstance == null) {
             render status: NOT_FOUND
             return
         }
 
-        secretariaInstance.delete flush:true
+        opcLlenadoInstance.delete flush:true
         render status: NO_CONTENT
     }
 }
