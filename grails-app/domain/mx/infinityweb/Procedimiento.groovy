@@ -4,14 +4,8 @@ class Procedimiento {
 	String codigoProcedimiento
 	String nombreProcedimiento
 	Estatus estadoProcedimiento
-	
 	static hasMany = [myCambio:Cambio]
-
-	Mapeo myMapeo
-	CorreccionEstilo myCorreccionEstilo
-	Implementacion myImplementacion
-	CargasISO myCargaISO
-
+	Subdireccion subdireccion
 	static constraints = {
     	codigoProcedimiento size: 1..10, blank: false, unique: true, nullable: false
     	nombreProcedimiento size: 1..10, blank: false, nullable: false
