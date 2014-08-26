@@ -8,97 +8,57 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class SubsecretariaController {
 
+    static responseFormats = ['json', 'xml']
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Subsecretaria.list(params), model:[subsecretariaInstanceCount: Subsecretaria.count()]
-    }
-
-    def show(Subsecretaria subsecretariaInstance) {
-        respond subsecretariaInstance
-    }
-
-    def create() {
-        respond new Subsecretaria(params)
+        respond Subsecretaria.list(params), [status: OK]
     }
 
     @Transactional
     def save(Subsecretaria subsecretariaInstance) {
         if (subsecretariaInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        subsecretariaInstance.validate()
         if (subsecretariaInstance.hasErrors()) {
-            respond subsecretariaInstance.errors, view:'create'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         subsecretariaInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'subsecretaria.label', default: 'Subsecretaria'), subsecretariaInstance.id])
-                redirect subsecretariaInstance
-            }
-            '*' { respond subsecretariaInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(Subsecretaria subsecretariaInstance) {
-        respond subsecretariaInstance
+        respond subsecretariaInstance, [status: CREATED]
     }
 
     @Transactional
     def update(Subsecretaria subsecretariaInstance) {
         if (subsecretariaInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
+        subsecretariaInstance.validate()
         if (subsecretariaInstance.hasErrors()) {
-            respond subsecretariaInstance.errors, view:'edit'
+            render status: NOT_ACCEPTABLE
             return
         }
 
         subsecretariaInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Subsecretaria.label', default: 'Subsecretaria'), subsecretariaInstance.id])
-                redirect subsecretariaInstance
-            }
-            '*'{ respond subsecretariaInstance, [status: OK] }
-        }
+        respond subsecretariaInstance, [status: OK]
     }
 
     @Transactional
     def delete(Subsecretaria subsecretariaInstance) {
 
         if (subsecretariaInstance == null) {
-            notFound()
+            render status: NOT_FOUND
             return
         }
 
         subsecretariaInstance.delete flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Subsecretaria.label', default: 'Subsecretaria'), subsecretariaInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'subsecretaria.label', default: 'Subsecretaria'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
+        render status: NO_CONTENT
     }
 }
