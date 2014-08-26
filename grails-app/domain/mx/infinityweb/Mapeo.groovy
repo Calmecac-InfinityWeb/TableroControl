@@ -1,4 +1,5 @@
 package mx.infinityweb
+
 class Mapeo {
 	Estado indentificacionNecesidades
 	Estado elaboracion
