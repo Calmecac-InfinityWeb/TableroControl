@@ -1,3 +1,22 @@
-\
+# .gitignore for Grails
+
+# web application files
+
+/web-app/WEB-INF
+
+# IDE support files
+
+.classpath/
+.launch/
+.project/
+
+.settings/
+.idea/
+*.iml
+
 *.class
 *.war
+*.launch/
+
+*.tmproj/
+
